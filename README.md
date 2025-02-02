@@ -27,3 +27,7 @@
 ## Note
 
 -   Ensure that the `.env` file is included in your `.gitignore` to prevent it from being pushed to the repository.
+
+# buddy
+
+Code change buddy
