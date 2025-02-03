@@ -1,4 +1,4 @@
-# Project Title
+# Code Buddy
 
 ## Setup Instructions
 
@@ -11,7 +11,7 @@
 
 2. **Create a `.env` file:**
 
-    - In the root directory, create a file named `.env`.
+    - In the `src` directory, create a file named `.env`.
     - Add the following line to the `.env` file:
         ```
         GEMINI_KEY=your_gemini_key_here
@@ -27,7 +27,3 @@
 ## Note
 
 -   Ensure that the `.env` file is included in your `.gitignore` to prevent it from being pushed to the repository.
-
-# buddy
-
-Code change buddy
