@@ -63,7 +63,7 @@ def analyze_project(directory):
                 functions, calls = parse_code(file_path)
 
                 for func in functions:
-                    call_graph.add_node(func)
+                    call_graph.add_node(func, file_path=file_path)
 
                 for caller, callee in calls:
                     call_graph.add_edge(caller, callee)
