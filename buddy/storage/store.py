@@ -7,9 +7,13 @@ from langchain_chroma import Chroma
 from langchain_core.documents import Document
 from getpass import getpass
 from langchain_community.vectorstores.utils import filter_complex_metadata
+from dotenv import load_dotenv
+
+load_dotenv()
 
 GOOGLE_API_KEY=os.getenv("GEMINI_KEY")
 genai.configure(api_key=GOOGLE_API_KEY)
+os.environ["GOOGLE_API_KEY"] = GOOGLE_API_KEY
 embedding_function = GoogleGenerativeAIEmbeddings(model="models/embedding-001", google_api_key=GOOGLE_API_KEY)
 
 # DB
