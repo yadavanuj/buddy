@@ -10,7 +10,6 @@ from langchain_community.vectorstores.utils import filter_complex_metadata
 
 GOOGLE_API_KEY=os.getenv("GEMINI_KEY")
 genai.configure(api_key=GOOGLE_API_KEY)
-os.environ["GOOGLE_API_KEY"] = getpass(GOOGLE_API_KEY)
 embedding_function = GoogleGenerativeAIEmbeddings(model="models/embedding-001", google_api_key=GOOGLE_API_KEY)
 
 # DB
