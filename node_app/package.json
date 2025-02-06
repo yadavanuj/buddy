@@ -1,0 +1,26 @@
+{
+	"name": "node_app",
+	"version": "1.0.0",
+	"description": "A Node.js application for managing blogs and users.",
+	"main": "server.js",
+	"scripts": {
+		"start": "node server.js",
+		"dev": "nodemon server.js"
+	},
+	"dependencies": {
+		"body-parser": "^1.20.3",
+		"dotenv": "^16.4.7",
+		"express": "^4.17.1",
+		"forerunnerdb": "^2.0.24",
+		"jsonwebtoken": "^8.5.1",
+		"mongoose": "^5.10.9",
+		"nodemailer": "^6.4.11",
+		"redis": "^3.1.2",
+		"sqlite3": "^5.1.7"
+	},
+	"devDependencies": {
+		"nodemon": "^2.0.4"
+	},
+	"author": "Your Name",
+	"license": "ISC"
+}
