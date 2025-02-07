@@ -1,7 +1,4 @@
 import re
-import nltk
-nltk.download('punkt_tab')
-nltk.download("wordnet")
 from nltk.corpus import wordnet
 
 def split_identifier(identifier):

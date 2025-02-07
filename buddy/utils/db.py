@@ -26,6 +26,15 @@ def get_state(name):
         cursor = conn.cursor()
         cursor.execute('SELECT value FROM state WHERE name = ?', (name,))
         return cursor.fetchone()
+    
+def get_all_state():
+    with connect_db() as conn:
+        cursor = conn.cursor()
+        cursor.execute('SELECT name, value FROM state')
+        rows = cursor.fetchall()
+        # Create a dictionary from the fetched rows
+        state_dict = {name: value for name, value in rows}
+        return state_dict
 
 def update_state(name, value):
     with connect_db() as conn:

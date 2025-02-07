@@ -62,6 +62,6 @@ def run_nodejs_server(script_path, port=3000):
 # Example usage:
 if __name__ == "__main__":
     script_path = "./viewer/server.js"  # Replace with the actual path to your server script.
-    port = 8080  # Replace with your desired port
+    port = 3000  # Replace with your desired port
     run_nodejs_server(script_path, port)
     print("Python script finished.") # This will print after the server has been killed.

@@ -1,30 +1,58 @@
-import os
-import argparse
+import click
 from dotenv import load_dotenv
-from core import direct_from_gemini, gemini_with_filtered_call_graph
-from db import create_table
+from core import direct_from_gemini, gemini_with_filtered_call_graph, clear_collection
+from utils.db import create_table, get_state, get_all_state, insert_state
 # Load environment variables from the .env file
 load_dotenv()
 create_table()
 
-if __name__ == "__main__":
-    parser = argparse.ArgumentParser(description="Code change planning CLI")
-    subparsers = parser.add_subparsers(dest="command", required=True)
+NOT_FIRST_RUN = 'not-first-run'
+NO_EMBEDDINGS = 'NO_EMBEDDINGS'
+EMBEDDING_EXISTS = 'embedding-exists'
 
-    # ask
-    ask_parser = subparsers.add_parser("ask-gemini", help="Ask gemini for code change directly. For small code base.")
-    ask_parser.add_argument("source_directory", type=str, help="Path to the source directory")
-    ask_parser.add_argument("task", type=str, help="Change to be planned for")
-    ask_parser.set_defaults(func=direct_from_gemini)
-
-    # plan
-    plan_parser = subparsers.add_parser("search-and-gemini", help="Stores code embeddings localy and search on them to filter call graph.")
-    plan_parser.add_argument("source_directory", type=str, help="Path to the source directory")
-    plan_parser.add_argument("task", type=str, help="Change to be planned for")
-    plan_parser.set_defaults(func=gemini_with_filtered_call_graph)
-
-    # Parse arguments
-    args = parser.parse_args()
+def import_nltk_dependencies():
+    import nltk
+    nltk.download('punkt_tab')
+    nltk.download("wordnet")
     
-    # Execute the appropriate command function
-    args.func(args)
+# Refresh deps
+@click.command()
+@click.option('--nltk', type=int, prompt="Should try fetching NLTK deps' latest version", help='1 True else False')
+@click.option('--graph', prompt='Query to be asked about the JS code.', type=str, help='E.g. Add caching to verification call.')
+def refresh(nltk_deps, call_graph):
+    if nltk_deps == 1:
+        import_nltk_dependencies()
+    if call_graph == 1:
+        clear_collection()
+        insert_state(EMBEDDING_EXISTS, '0')
+        
+
+# Generate call graph and directly ask gemini
+@click.command()
+@click.option('--root', type=str, prompt='Root folder for JS project to create change plan for.', help='Absolute path D:/a/b/root')
+@click.option('--query', prompt='Query to be asked about the JS code.', type=str, help='E.g. Add caching to verification call.')
+@click.option('--direct', prompt='Directly send whole call graph to gemini without filtering', type=int, default=0, help='1 True else False')
+@click.option('--embed', prompt='Parse code and embed to chroma', type=int, default=0, help='1 True else False')
+def code(root, query, direct, embed):
+    states = get_all_state()
+    if NOT_FIRST_RUN not in states:
+        click.echo(f'Downloading dependencies')
+        import_nltk_dependencies()
+    
+    args = {'root': root, 'query': query, 'states': states, 'embed': embed }
+    if direct == 1:
+        direct_from_gemini(args)
+    else:
+        gemini_with_filtered_call_graph(args)
+
+# Main CLI group
+@click.group()
+def cli():
+    pass
+
+cli.add_command(code)
+cli.add_command(refresh)
+
+
+if __name__ == '__main__':
+    cli()

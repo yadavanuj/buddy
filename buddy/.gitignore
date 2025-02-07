@@ -2,3 +2,4 @@ __pycache__/
 *.pyc
 .env
 buddy_db/
+local_storage.db
