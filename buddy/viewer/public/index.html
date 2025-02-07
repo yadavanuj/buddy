@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<title>JS Call Graph</title>
+		<script src="https://d3js.org/d3.v7.min.js"></script>
+		<style>
+			svg {
+				width: 100vw;
+				height: 100vh;
+				background: #f9f9f9;
+			}
+			.node {
+				fill: steelblue;
+				cursor: pointer;
+			}
+			.link {
+				stroke: #999;
+				stroke-opacity: 0.6;
+				stroke-width: 2px;
+			}
+			text {
+				font-size: 12px;
+				font-family: Arial, sans-serif;
+				fill: black;
+			}
+		</style>
+	</head>
+	<body>
+		<svg></svg>
+		<script>
+			d3.json('/graph').then((graph) => {
+				const width = window.innerWidth,
+					height = window.innerHeight;
+				const svg = d3.select('svg');
+
+				const simulation = d3
+					.forceSimulation(graph.nodes)
+					.force(
+						'link',
+						d3
+							.forceLink(graph.links)
+							.id((d) => d.id)
+							.distance(120)
+					)
+					.force('charge', d3.forceManyBody().strength(-400))
+					.force('center', d3.forceCenter(width / 2, height / 2));
+
+				const link = svg
+					.append('g')
+					.selectAll('.link')
+					.data(graph.links)
+					.enter()
+					.append('line')
+					.attr('class', 'link');
+
+				const node = svg
+					.append('g')
+					.selectAll('.node')
+					.data(graph.nodes)
+					.enter()
+					.append('circle')
+					.attr('class', 'node')
+					.attr('r', 8)
+					.call(
+						d3
+							.drag()
+							.on('start', dragstarted)
+							.on('drag', dragged)
+							.on('end', dragended)
+					);
+
+				const labels = svg
+					.append('g')
+					.selectAll('text')
+					.data(graph.nodes)
+					.enter()
+					.append('text')
+					.text((d) => d.id)
+					.attr('x', 10)
+					.attr('y', 5);
+
+				simulation.on('tick', () => {
+					link.attr('x1', (d) => d.source.x)
+						.attr('y1', (d) => d.source.y)
+						.attr('x2', (d) => d.target.x)
+						.attr('y2', (d) => d.target.y);
+
+					node.attr('cx', (d) => d.x).attr('cy', (d) => d.y);
+					labels.attr('x', (d) => d.x + 10).attr('y', (d) => d.y);
+				});
+
+				function dragstarted(event, d) {
+					if (!event.active) simulation.alphaTarget(0.3).restart();
+					d.fx = d.x;
+					d.fy = d.y;
+				}
+
+				function dragged(event, d) {
+					d.fx = event.x;
+					d.fy = event.y;
+				}
+
+				function dragended(event, d) {
+					if (!event.active) simulation.alphaTarget(0);
+					d.fx = null;
+					d.fy = null;
+				}
+			});
+		</script>
+	</body>
+</html>

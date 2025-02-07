@@ -1,0 +1,566 @@
+{
+    "nodes": [
+        {
+            "id": "Cache.constructor",
+            "path": "D:\\python-code\\buddy\\node_app\\cache.js"
+        },
+        {
+            "id": "Cache.set",
+            "path": "D:\\python-code\\buddy\\node_app\\cache.js"
+        },
+        {
+            "id": "Cache.get",
+            "path": "D:\\python-code\\buddy\\node_app\\cache.js"
+        },
+        {
+            "id": "Cache.delete",
+            "path": "D:\\python-code\\buddy\\node_app\\cache.js"
+        },
+        {
+            "id": "this.fdb.db",
+            "path": ""
+        },
+        {
+            "id": "this.db.collection",
+            "path": ""
+        },
+        {
+            "id": "this.cache.insert",
+            "path": ""
+        },
+        {
+            "id": "this.cache.find",
+            "path": ""
+        },
+        {
+            "id": "this.cache.remove",
+            "path": ""
+        },
+        {
+            "id": "getAllUsers",
+            "path": "D:\\python-code\\buddy\\node_app\\controllers\\userController.js"
+        },
+        {
+            "id": "deleteUser",
+            "path": "D:\\python-code\\buddy\\node_app\\controllers\\userController.js"
+        },
+        {
+            "id": "User.findAll()\n        .then(users => res.status(200).json(users))\n        .catch",
+            "path": ""
+        },
+        {
+            "id": "User.findAll()\n        .then",
+            "path": ""
+        },
+        {
+            "id": "User.findAll",
+            "path": ""
+        },
+        {
+            "id": "res.status(200).json",
+            "path": ""
+        },
+        {
+            "id": "res.status",
+            "path": ""
+        },
+        {
+            "id": "res.status(500).json",
+            "path": ""
+        },
+        {
+            "id": "User.deleteById(userId)\n        .then(() => res.status(200).json({ message: 'User deleted successfully' }))\n        .catch",
+            "path": ""
+        },
+        {
+            "id": "User.deleteById(userId)\n        .then",
+            "path": ""
+        },
+        {
+            "id": "User.deleteById",
+            "path": ""
+        },
+        {
+            "id": "createBlog",
+            "path": "D:\\python-code\\buddy\\node_app\\controllers\\blogController.js"
+        },
+        {
+            "id": "getAllBlogs",
+            "path": "D:\\python-code\\buddy\\node_app\\controllers\\blogController.js"
+        },
+        {
+            "id": "getBlogById",
+            "path": "D:\\python-code\\buddy\\node_app\\controllers\\blogController.js"
+        },
+        {
+            "id": "updateBlog",
+            "path": "D:\\python-code\\buddy\\node_app\\controllers\\blogController.js"
+        },
+        {
+            "id": "deleteBlog",
+            "path": "D:\\python-code\\buddy\\node_app\\controllers\\blogController.js"
+        },
+        {
+            "id": "Blog.create(title, content)\n        .then(newBlog => res.status(201).json({ message: 'Blog created successfully', blog: newBlog }))\n        .catch",
+            "path": ""
+        },
+        {
+            "id": "Blog.create(title, content)\n        .then",
+            "path": ""
+        },
+        {
+            "id": "Blog.create",
+            "path": ""
+        },
+        {
+            "id": "res.status(201).json",
+            "path": ""
+        },
+        {
+            "id": "Blog.findAll()\n        .then(blogs => res.status(200).json(blogs))\n        .catch",
+            "path": ""
+        },
+        {
+            "id": "Blog.findAll()\n        .then",
+            "path": ""
+        },
+        {
+            "id": "Blog.findAll",
+            "path": ""
+        },
+        {
+            "id": "Blog.findById(blogId)\n        .then(blog => {\n            if (!blog) {\n                return res.status(404).json({ message: 'Blog not found' });\n            }\n            res.status(200).json(blog);\n        })\n        .catch",
+            "path": ""
+        },
+        {
+            "id": "Blog.findById(blogId)\n        .then",
+            "path": ""
+        },
+        {
+            "id": "Blog.findById",
+            "path": ""
+        },
+        {
+            "id": "res.status(404).json",
+            "path": ""
+        },
+        {
+            "id": "Blog.updateById(blogId, title, content)\n        .then(() => res.status(200).json({ message: 'Blog updated successfully' }))\n        .catch",
+            "path": ""
+        },
+        {
+            "id": "Blog.updateById(blogId, title, content)\n        .then",
+            "path": ""
+        },
+        {
+            "id": "Blog.updateById",
+            "path": ""
+        },
+        {
+            "id": "Blog.deleteById(blogId)\n        .then(() => res.status(200).json({ message: 'Blog deleted successfully' }))\n        .catch",
+            "path": ""
+        },
+        {
+            "id": "Blog.deleteById(blogId)\n        .then",
+            "path": ""
+        },
+        {
+            "id": "Blog.deleteById",
+            "path": ""
+        },
+        {
+            "id": "registerUser",
+            "path": "D:\\python-code\\buddy\\node_app\\controllers\\userController.js"
+        },
+        {
+            "id": "signIn",
+            "path": "D:\\python-code\\buddy\\node_app\\controllers\\userController.js"
+        },
+        {
+            "id": "getUserProfile",
+            "path": "D:\\python-code\\buddy\\node_app\\controllers\\userController.js"
+        },
+        {
+            "id": "User.create(email, password)\n        .then(newUser => {\n            const token = jwt.sign({ id: newUser.id }, process.env.JWT_SECRET, { expiresIn: '1h' }); // Create token\n            res.status(201).json({ message: 'User registered successfully', user: newUser, token }); // Return token\n        })\n        .catch",
+            "path": ""
+        },
+        {
+            "id": "User.create(email, password)\n        .then",
+            "path": ""
+        },
+        {
+            "id": "User.create",
+            "path": ""
+        },
+        {
+            "id": "jwt.sign",
+            "path": ""
+        },
+        {
+            "id": "User.findByEmail(email)\n        .then(user => {\n            if (!user || user.password !== password) {\n                return res.status(401).json({ message: 'Invalid email or password' });\n            }\n            const token = jwt.sign({ id: user.id }, process.env.JWT_SECRET, { expiresIn: '1h' }); // Create token\n            res.status(200).json({ message: 'User signed in successfully', token }); // Return token\n        })\n        .catch",
+            "path": ""
+        },
+        {
+            "id": "User.findByEmail(email)\n        .then",
+            "path": ""
+        },
+        {
+            "id": "User.findByEmail",
+            "path": ""
+        },
+        {
+            "id": "res.status(401).json",
+            "path": ""
+        },
+        {
+            "id": "User.findById(userId)\n        .then(user => {\n            if (!user) {\n                return res.status(404).json({ message: 'User not found' });\n            }\n            res.status(200).json(user);\n        })\n        .catch",
+            "path": ""
+        },
+        {
+            "id": "User.findById(userId)\n        .then",
+            "path": ""
+        },
+        {
+            "id": "User.findById",
+            "path": ""
+        },
+        {
+            "id": "verifyToken",
+            "path": "D:\\python-code\\buddy\\node_app\\middleware\\authMiddleware.js"
+        },
+        {
+            "id": "res.status(403).send",
+            "path": ""
+        },
+        {
+            "id": "jwt.verify",
+            "path": ""
+        },
+        {
+            "id": "User.findById(decoded.id).then",
+            "path": ""
+        },
+        {
+            "id": "res.status(401).send",
+            "path": ""
+        },
+        {
+            "id": "next",
+            "path": ""
+        }
+    ],
+    "links": [
+        {
+            "source": "Cache.constructor",
+            "target": "this.fdb.db"
+        },
+        {
+            "source": "Cache.constructor",
+            "target": "this.db.collection"
+        },
+        {
+            "source": "Cache.set",
+            "target": "this.cache.insert"
+        },
+        {
+            "source": "Cache.get",
+            "target": "this.cache.find"
+        },
+        {
+            "source": "Cache.get",
+            "target": "this.cache.remove"
+        },
+        {
+            "source": "Cache.delete",
+            "target": "this.cache.remove"
+        },
+        {
+            "source": "getAllUsers",
+            "target": "User.findAll()\n        .then(users => res.status(200).json(users))\n        .catch"
+        },
+        {
+            "source": "getAllUsers",
+            "target": "User.findAll()\n        .then"
+        },
+        {
+            "source": "getAllUsers",
+            "target": "User.findAll"
+        },
+        {
+            "source": "getAllUsers",
+            "target": "res.status(200).json"
+        },
+        {
+            "source": "getAllUsers",
+            "target": "res.status"
+        },
+        {
+            "source": "getAllUsers",
+            "target": "res.status(500).json"
+        },
+        {
+            "source": "deleteUser",
+            "target": "User.deleteById(userId)\n        .then(() => res.status(200).json({ message: 'User deleted successfully' }))\n        .catch"
+        },
+        {
+            "source": "deleteUser",
+            "target": "User.deleteById(userId)\n        .then"
+        },
+        {
+            "source": "deleteUser",
+            "target": "User.deleteById"
+        },
+        {
+            "source": "deleteUser",
+            "target": "res.status(200).json"
+        },
+        {
+            "source": "deleteUser",
+            "target": "res.status"
+        },
+        {
+            "source": "deleteUser",
+            "target": "res.status(500).json"
+        },
+        {
+            "source": "createBlog",
+            "target": "Blog.create(title, content)\n        .then(newBlog => res.status(201).json({ message: 'Blog created successfully', blog: newBlog }))\n        .catch"
+        },
+        {
+            "source": "createBlog",
+            "target": "Blog.create(title, content)\n        .then"
+        },
+        {
+            "source": "createBlog",
+            "target": "Blog.create"
+        },
+        {
+            "source": "createBlog",
+            "target": "res.status(201).json"
+        },
+        {
+            "source": "createBlog",
+            "target": "res.status"
+        },
+        {
+            "source": "createBlog",
+            "target": "res.status(500).json"
+        },
+        {
+            "source": "getAllBlogs",
+            "target": "Blog.findAll()\n        .then(blogs => res.status(200).json(blogs))\n        .catch"
+        },
+        {
+            "source": "getAllBlogs",
+            "target": "Blog.findAll()\n        .then"
+        },
+        {
+            "source": "getAllBlogs",
+            "target": "Blog.findAll"
+        },
+        {
+            "source": "getAllBlogs",
+            "target": "res.status(200).json"
+        },
+        {
+            "source": "getAllBlogs",
+            "target": "res.status"
+        },
+        {
+            "source": "getAllBlogs",
+            "target": "res.status(500).json"
+        },
+        {
+            "source": "getBlogById",
+            "target": "Blog.findById(blogId)\n        .then(blog => {\n            if (!blog) {\n                return res.status(404).json({ message: 'Blog not found' });\n            }\n            res.status(200).json(blog);\n        })\n        .catch"
+        },
+        {
+            "source": "getBlogById",
+            "target": "Blog.findById(blogId)\n        .then"
+        },
+        {
+            "source": "getBlogById",
+            "target": "Blog.findById"
+        },
+        {
+            "source": "getBlogById",
+            "target": "res.status(404).json"
+        },
+        {
+            "source": "getBlogById",
+            "target": "res.status"
+        },
+        {
+            "source": "getBlogById",
+            "target": "res.status(200).json"
+        },
+        {
+            "source": "getBlogById",
+            "target": "res.status(500).json"
+        },
+        {
+            "source": "updateBlog",
+            "target": "Blog.updateById(blogId, title, content)\n        .then(() => res.status(200).json({ message: 'Blog updated successfully' }))\n        .catch"
+        },
+        {
+            "source": "updateBlog",
+            "target": "Blog.updateById(blogId, title, content)\n        .then"
+        },
+        {
+            "source": "updateBlog",
+            "target": "Blog.updateById"
+        },
+        {
+            "source": "updateBlog",
+            "target": "res.status(200).json"
+        },
+        {
+            "source": "updateBlog",
+            "target": "res.status"
+        },
+        {
+            "source": "updateBlog",
+            "target": "res.status(500).json"
+        },
+        {
+            "source": "deleteBlog",
+            "target": "Blog.deleteById(blogId)\n        .then(() => res.status(200).json({ message: 'Blog deleted successfully' }))\n        .catch"
+        },
+        {
+            "source": "deleteBlog",
+            "target": "Blog.deleteById(blogId)\n        .then"
+        },
+        {
+            "source": "deleteBlog",
+            "target": "Blog.deleteById"
+        },
+        {
+            "source": "deleteBlog",
+            "target": "res.status(200).json"
+        },
+        {
+            "source": "deleteBlog",
+            "target": "res.status"
+        },
+        {
+            "source": "deleteBlog",
+            "target": "res.status(500).json"
+        },
+        {
+            "source": "registerUser",
+            "target": "User.create(email, password)\n        .then(newUser => {\n            const token = jwt.sign({ id: newUser.id }, process.env.JWT_SECRET, { expiresIn: '1h' }); // Create token\n            res.status(201).json({ message: 'User registered successfully', user: newUser, token }); // Return token\n        })\n        .catch"
+        },
+        {
+            "source": "registerUser",
+            "target": "User.create(email, password)\n        .then"
+        },
+        {
+            "source": "registerUser",
+            "target": "User.create"
+        },
+        {
+            "source": "registerUser",
+            "target": "jwt.sign"
+        },
+        {
+            "source": "registerUser",
+            "target": "res.status(201).json"
+        },
+        {
+            "source": "registerUser",
+            "target": "res.status"
+        },
+        {
+            "source": "registerUser",
+            "target": "res.status(500).json"
+        },
+        {
+            "source": "signIn",
+            "target": "User.findByEmail(email)\n        .then(user => {\n            if (!user || user.password !== password) {\n                return res.status(401).json({ message: 'Invalid email or password' });\n            }\n            const token = jwt.sign({ id: user.id }, process.env.JWT_SECRET, { expiresIn: '1h' }); // Create token\n            res.status(200).json({ message: 'User signed in successfully', token }); // Return token\n        })\n        .catch"
+        },
+        {
+            "source": "signIn",
+            "target": "User.findByEmail(email)\n        .then"
+        },
+        {
+            "source": "signIn",
+            "target": "User.findByEmail"
+        },
+        {
+            "source": "signIn",
+            "target": "res.status(401).json"
+        },
+        {
+            "source": "signIn",
+            "target": "res.status"
+        },
+        {
+            "source": "signIn",
+            "target": "jwt.sign"
+        },
+        {
+            "source": "signIn",
+            "target": "res.status(200).json"
+        },
+        {
+            "source": "signIn",
+            "target": "res.status(500).json"
+        },
+        {
+            "source": "getUserProfile",
+            "target": "User.findById(userId)\n        .then(user => {\n            if (!user) {\n                return res.status(404).json({ message: 'User not found' });\n            }\n            res.status(200).json(user);\n        })\n        .catch"
+        },
+        {
+            "source": "getUserProfile",
+            "target": "User.findById(userId)\n        .then"
+        },
+        {
+            "source": "getUserProfile",
+            "target": "User.findById"
+        },
+        {
+            "source": "getUserProfile",
+            "target": "res.status(404).json"
+        },
+        {
+            "source": "getUserProfile",
+            "target": "res.status"
+        },
+        {
+            "source": "getUserProfile",
+            "target": "res.status(200).json"
+        },
+        {
+            "source": "getUserProfile",
+            "target": "res.status(500).json"
+        },
+        {
+            "source": "verifyToken",
+            "target": "res.status(403).send"
+        },
+        {
+            "source": "verifyToken",
+            "target": "res.status"
+        },
+        {
+            "source": "verifyToken",
+            "target": "jwt.verify"
+        },
+        {
+            "source": "verifyToken",
+            "target": "User.findById(decoded.id).then"
+        },
+        {
+            "source": "verifyToken",
+            "target": "User.findById"
+        },
+        {
+            "source": "verifyToken",
+            "target": "res.status(401).send"
+        },
+        {
+            "source": "verifyToken",
+            "target": "next"
+        }
+    ]
+}
