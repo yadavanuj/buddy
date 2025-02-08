@@ -84,6 +84,18 @@ Buddy is your new AI friend 🤗. It has started as a project to be a `Code Budd
 
 ![alt text](assets/change_plan.png)
 
+## Next
+
+-   Refactoring
+-   Testing
+-   Add support for more LLMs e.g. OpenAI
+-   Add support for more programming languages e.g. Python, Java, C++
+-   Add support for PDF and HTML
+-   Add support for flexible prompts
+-   Add support for dynamic pipeline of callables to use `Buddy` differently. e.g.
+    -   A teacher can use `Buddy` by indexing PDF
+    -   A coder can use `Buddy` by parsing code.
+
 ## Note
 
 -   Ensure that the `.env` file is included in your `.gitignore` to prevent it from being pushed to the repository.
