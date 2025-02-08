@@ -13,6 +13,7 @@ Buddy is your new AI friend 🤗. It has started as a project to be a `Code Budd
 -   Then it creates a `call graph` for the code using `Networkx`.
 -   It then uses `Gemini` as `LLM`.
 -   It has an **intelligent** mode where it uses `LangChain` and `Chroma` to save the `Google AI Embeddings` locally to filter `call graph` for the user query before sending it to `Gemini`.
+-   It uses `NLTK` for generating synonyms for function names.
 
 ## Why LangChain and Chroma?
 
@@ -54,7 +55,26 @@ Buddy is your new AI friend 🤗. It has started as a project to be a `Code Budd
 -   The CLI provides two major commands
     -   code - To create change plan
     -   refresh - To refresh NLTK dependencies and/or Chroma embeddings.
+-   Using `code` command :
+    -   The `node_app` directory has a sample JS app.
+    -   Assuming you have cloned `buddy` in `D:\buddy`
+        ```
+        >.\venv\Scripts\activate
+        >cd .\buddy
+        >python .\buddy_cli.py code
+        Root folder for JS project to create change plan for.: D:\buddy\node_app
+        Query to be asked about the JS code.: Add caching to user verification
+        Directly send whole call graph to gemini without filtering [0]: 0
+        Parse code and embed to chroma [0]: 1
+        ```
 -   `/buddy/viewer` directory uses `Node JS`, `D3` and `Marked` to help you visualize the output.
+    -   Using viewer
+        ```
+        cd .\viewer
+        node server.js # do an npm i first
+        ```
+    -   localhost:3000 shows call graph
+    -   localhost:3000/plan shows code change plan
 
 👇 Call Graph
 
