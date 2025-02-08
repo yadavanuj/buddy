@@ -16,12 +16,12 @@ Buddy is your new AI friend 🤗. It has started as a project to be a `Code Budd
 
 ## Why LangChain and Chroma?
 
--   LangChain and Chroma is used to save the `Google AI Embeddings` locally to filter `call graph`
+-   LangChain and Chroma are used to save the `Google AI Embeddings` locally to filter `call graph`
 -   This is done to reduce the `LLM` usage and make `Buddy` efficient.
 
 ## Setup Instructions
 
-👉 **Note**: Python 3.12.8 or latter are required.
+👉 **Note**: Python 3.12.8 or latter is required.
 
 1. **Clone the repository:**
 
@@ -41,13 +41,28 @@ Buddy is your new AI friend 🤗. It has started as a project to be a `Code Budd
 3. **Install dependencies:**
 
     - Make sure to install any required dependencies for the project.
-
-    ```
-    pip install -r requirements.txt
-    ```
+        ```
+        .\venv\Scripts\activate
+        pip install -r requirements.txt
+        ```
 
 4. **Run the application:**
     - Follow the instructions to run the application.
+
+## Usage
+
+-   The CLI provides two major commands
+    -   code - To create change plan
+    -   refresh - To refresh NLTK dependencies and/or Chroma embeddings.
+-   `/buddy/viewer` directory uses `Node JS`, `D3` and `Marked` to help you visualize the output.
+
+👇 Call Graph
+
+![alt text](assets/call_graph.png)
+
+👇 Code Change Plan
+
+![alt text](assets/change_plan.png)
 
 ## Note
 
